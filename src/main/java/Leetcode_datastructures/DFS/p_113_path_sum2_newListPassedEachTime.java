@@ -1,4 +1,4 @@
-package Leetcode_datastructures;
+package Leetcode_datastructures.DFS;
 
 import java.util.ArrayList;
 import java.util.List;

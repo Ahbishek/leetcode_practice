@@ -1,4 +1,4 @@
-package Leetcode_datastructures;
+package Leetcode_datastructures.DFS;
 
 public class p_112_path_sum_solvedUsingPreorder {
          public class TreeNode {

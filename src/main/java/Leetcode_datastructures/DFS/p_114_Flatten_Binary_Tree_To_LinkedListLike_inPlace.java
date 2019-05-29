@@ -1,4 +1,4 @@
-package Leetcode_datastructures;
+package Leetcode_datastructures.DFS;
 
 public class p_114_Flatten_Binary_Tree_To_LinkedListLike_inPlace {
 }
