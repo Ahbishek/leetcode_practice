@@ -1,7 +1,5 @@
 package Leetcode_datastructures.DFS;
 
-public class p_114_Flatten_Binary_Tree_To_LinkedListLike_inPlace {
-}
 
 /**
  * Definition for a binary tree node.
@@ -18,7 +16,7 @@ public class p_114_Flatten_Binary_Tree_To_LinkedListLike_inPlace {
     TreeNode right;
     TreeNode(int x) { val = x; }
 }
-class Solution {
+public class p_114_Flatten_Binary_Tree_To_LinkedListLike_inPlace {
 
     public void flatten(TreeNode root){
         flatten2(root);
