@@ -36,8 +36,24 @@ public class TP {
         System.out.println(Integer.toBinaryString(-905969664));
       StringBuilder br2 =new StringBuilder("abc");
       br2.reverse().toString();
+
+
+
+      Boolean abcd = false;
+      fun1(abcd);
+      fun2(abcd);
+
         //n!=0 & !(n &)
        // bigint.bitCount()
+    }
+
+    private static void fun1(Boolean abcd) {
+        System.out.println("fun1 abcd before change " + abcd);
+        abcd = true;
+        System.out.println("fun1 abcd after change " + abcd);
+    }
+    private static void fun2(Boolean abcd) {
+        System.out.println("fun2 abcd before change " + abcd);
     }
 
 }
