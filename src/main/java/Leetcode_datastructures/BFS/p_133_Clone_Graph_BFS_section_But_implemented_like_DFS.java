@@ -2,7 +2,7 @@ package Leetcode_datastructures.BFS;
 
 import java.util.*;
 
-public class Clone_Graph_BFS_section_But_implemented_like_DFS {
+class Clone_Graph_BFS_section_But_implemented_like_DFS {
 }
 // Definition for a Node.
 class Node {
