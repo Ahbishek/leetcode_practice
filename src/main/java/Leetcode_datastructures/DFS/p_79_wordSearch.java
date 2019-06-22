@@ -18,7 +18,7 @@ public class p_79_wordSearch {
 
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
-        visited[i][j] = false;
+                visited[i][j] = false;
             }
         }
 
@@ -27,10 +27,11 @@ public class p_79_wordSearch {
             for(int j=0;j<m;j++){
                 String s ="";
                 boolean resultContainer[] ={false};
-
-                DFS(board,word,i,j,visited,s,resultContainer);
-                if(resultContainer[0]){
-                    return  true;
+                if(board[i][j] == word.charAt(0)){
+                    DFS(board,word,i,j,visited,s,resultContainer,1);
+                    if(resultContainer[0]){
+                        return  true;
+                    }
                 }
             }
         }
@@ -39,37 +40,48 @@ public class p_79_wordSearch {
 
     }
 
-    private static  void DFS(char[][] board, String word, int i, int j, boolean[][] visited,String s,boolean[] resultContainer) {
-    String oldS = new String(s);
-    s=s+board[i][j];
-    visited[i][j] = true;
+    private  static void DFS(char[][] board, String word, int i, int j, boolean[][] visited,String s,boolean[] resultContainer,
+                       int position) {
+        String oldS = new String(s);
+        s=s+board[i][j];
+        visited[i][j] = true;
 
-    if(word.equals(s)){
-       resultContainer[0] = true;
-    }
+        if(word.equals(s)){
+            resultContainer[0] = true;
+        }
 
-    if( i+1 < board.length && i+1 >=0 && j>=0 && j<board[0].length &&!visited[i+1][j]){
-        DFS(board,word,i+1,j,visited,s,resultContainer);
-    }
+        if( i+1 < board.length && i+1 >=0 && j>=0 && j<board[0].length &&!visited[i+1][j] && position<word.length() &&  resultContainer[0] == false){
+            if(word.charAt(position)==board[i+1][j]){
+                DFS(board,word,i+1,j,visited,s,resultContainer,position+1);
+            }
+        }
 
-        if( i-1 < board.length && i-1>=0 && j>=0 && j<board[0].length &&!visited[i-1][j]){
-            DFS(board,word,i-1,j,visited,s,resultContainer);
+        if( i-1 < board.length && i-1>=0 && j>=0 && j<board[0].length &&!visited[i-1][j] && position<word.length()
+                &&     resultContainer[0] == false){
+            if(word.charAt(position) == board[i-1][j]){
+                DFS(board,word,i-1,j,visited,s,resultContainer,position+1);
+            }
         }
 
 
-    if(i < board.length && i>=0 && j+1<board[0].length && j+1>=0 && !visited[i][j+1]){
-            DFS(board,word,i,j+1,visited,s,resultContainer);
+        if(i < board.length && i>=0 && j+1<board[0].length && j+1>=0 && !visited[i][j+1] && position<word.length()
+                &&  resultContainer[0] == false){
+            if(word.charAt(position) ==board[i][j+1]){
+                DFS(board,word,i,j+1,visited,s,resultContainer,position+1);
+            }
         }
 
-        if(i < board.length && i>=0 && j-1<board[0].length && j-1>=0 && !visited[i][j-1]){
-            DFS(board,word,i,j-1,visited,s,resultContainer);
+        if(i < board.length && i>=0 && j-1<board[0].length && j-1>=0 && !visited[i][j-1] && position<word.length()
+                &&  resultContainer[0] == false){
+            if(board[i][j-1] == word.charAt(position)){
+                DFS(board,word,i,j-1,visited,s,resultContainer,position+1);
+            }
         }
 
-    //end done sabh hum leya with this node , set it to false and remove
-    visited[i][j] = false;
-    //s = oldS;
+        //end done sabh hum leya with this node , set it to false and remove
+        visited[i][j] = false;
+        //s = oldS;
     }
-
 
     public static void main(String[] args){
         String  abc ="";
